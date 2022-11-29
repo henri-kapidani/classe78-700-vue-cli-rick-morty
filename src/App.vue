@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <PageHeader />
-    <PageMain />
+    <PageHeader :results-for="searchString" />
+    <PageMain @search="search" />
     <PageFooter />
   </div>
 </template>
@@ -17,6 +17,16 @@ export default {
     PageHeader,
     PageMain,
     PageFooter,
+  },
+  data() {
+    return {
+      searchString: '',
+    };
+  },
+  methods: {
+    search(data) {
+      this.searchString = data;
+    },
   },
 };
 </script>
